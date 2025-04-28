@@ -10,4 +10,9 @@ class LoginController extends Controller
         
         return view('home.login');
     }
+
+    public function auth(Request $request): RedirectResponse{
+        
+        return redirect('/home');
+    }
 }

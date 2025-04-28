@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cinema - Login</title>
+    <title>Cinema - Register</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
@@ -19,7 +21,6 @@
             justify-content: center;
             align-items: center;
             min-height: 80vh;
-            margin-top: 30px;
             padding: 1rem;
         }
 
@@ -145,22 +146,36 @@
 
     <div class="card">
         <div class="container">
-            <p1>LOGIN</p1>
+            <p1>REGISTER</p1>
             <form method="POST" action="/login">
                 @csrf()
 
                 <div class="mb-4">
+                    <label for="Name" class="form-label">full name</label>
+                    <input type="text" class="form-control" id="Name" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="Email" class="form-label">email</label>
+                    <input type="text" class="form-control" id="Email" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="Number" class="form-label">phone numbber</label>
+                    <input type="text" class="form-control" id="number" required>
+                </div>
+
+                <div class="mb-4">
                     <label for="username" class="form-label">username</label>
-                    <input type="text" name="username" class="form-control" id="username" required>
+                    <input type="text" class="form-control" id="username" required>
                 </div>
 
                 <div class="mb-4">
                     <label for="password" class="form-label">password</label>
-                    <input type="password" name="password" class="form-control" id="password" required>
+                    <input type="text" class="form-control" id="password" required>
                 </div>
 
-                <button type="submit" class="btn btn-dark btn-submit mb-4">login</button>
-                <p>Not yet a member? <a href="/registration">Register Now </a> </p>
+                <button type="submit" class="btn btn-dark btn-submit mb-1">register</button>
 
             </form>
         </div>
