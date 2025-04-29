@@ -85,7 +85,6 @@
             padding: 35px;
         }
 
-        /* Responsive Styles */
         @media (max-width: 768px) {
             p1 {
                 font-size: 50px;

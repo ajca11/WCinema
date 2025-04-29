@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="Number" class="form-label">phone numbber</label>
+                    <label for="Number" class="form-label">phone number</label>
                     <input type="text" class="form-control" id="number" required>
                 </div>
 
