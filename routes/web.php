@@ -10,6 +10,9 @@ Route::get('/movie', 'App\Http\Controllers\MdetailsController@index');
 Route::get('/confirmation', 'App\Http\Controllers\ConfirmationController@index');
 
 Route::get('/devhome', 'App\Http\Controllers\DevController@index');
+Route::get('/users', 'App\Http\Controllers\UserController@index');
+Route::get('/manage', 'App\Http\Controllers\ManageController@index');
+Route::get('/reservation', 'App\Http\Controllers\ReservationController@index');
 
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
 Route::post('/login', 'App\Http\Controllers\LoginController@auth');
