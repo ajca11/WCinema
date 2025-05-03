@@ -119,7 +119,9 @@
             <td>markotto</td>
             <td>••••••</td>
             <td>
-                <div class = "btn btn-light"> Edit </div>
+              <button type="button" class="btn btn-light">
+                <a href="/edituser" aria-label="System Users">Edit</a>
+            </button>
                 <div class = "btn btn-dark"> Delete </div>
             </td>
           </tr>
