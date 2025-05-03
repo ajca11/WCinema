@@ -56,3 +56,4 @@ DB_DATABASE=usls
 - [@RieeSanne](https://github.com/RieeSanne)
 - [@ajca11](https://github.com/ajca11)
 - [@Dynzyl](https://github.com/Dynzyl)
+- [@Kardel123](https://github.com/Kardel123)
