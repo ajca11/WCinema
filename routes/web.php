@@ -13,10 +13,10 @@ Route::get('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/registration', 'App\Http\Controllers\RegistrationController@index');
 Route::get('/movie', 'App\Http\Controllers\MdetailsController@index');
 Route::get('/confirmation', 'App\Http\Controllers\ConfirmationController@index');
+Route::get('/booking', 'App\Http\Controllers\BookingController@index');
 
 Route::get('/devhome', 'App\Http\Controllers\DevController@index');
 Route::get('/users', 'App\Http\Controllers\UserController@index');
-Route::get('/reservation', 'App\Http\Controllers\ReservationController@index');
 
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('/users/users', [UserController::class, 'edit'])->name('users.users');
@@ -33,8 +33,6 @@ Route::put('/manage/update/{id}', [ManageController::class, 'update'])->name('ma
 Route::delete('/manage/delete/{id}', [ManageController::class, 'destroy'])->name('manage.destroy');
 
 Route::get('/reservation', 'App\Http\Controllers\ReservationController@index');
-
-
 Route::get('/reservations/reservation', [ReservationController::class, 'edit'])->name('reservations.reservation');
 Route::get('/reservations/edit/{id}', [ReservationController::class, 'edit'])->name('reservations.editreserve');
 Route::put('/reservations/update/{id}', [ReservationController::class, 'update'])->name('reservations.update');

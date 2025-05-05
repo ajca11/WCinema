@@ -139,7 +139,7 @@
                     <p><strong>Director:</strong> Louis Leterrier</p>
                     <p><strong>Time:</strong> 13:00 | 16:00 | 19:00</p>
                 </div>
-                <button class="btn-book"><a href="/confirmation" aria-label="System Users">Book Now</a></button>
+                <button class="btn-book"><a href="/booking" aria-label="System Users">Book Now</a></button>
             </div>
 
             <div class="movie-card">

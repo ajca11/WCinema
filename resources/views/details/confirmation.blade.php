@@ -15,7 +15,7 @@
             }
 
             .container {
-                max-width: 1000px;
+                max-width: 800px;
                 margin-top: 80px;
                 margin-bottom: 60px;
             }
@@ -33,129 +33,80 @@
                 margin-bottom: 30px;
             }
 
-            label {
+            .details-box {
+                background-color: #f8f9fa;
+                border-radius: 10px;
+                padding: 30px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            }
+
+            .details-box label {
                 font-weight: 600;
-                margin-bottom: 6px;
+                color: #333;
             }
 
-            .form-control,
-            .btn-light {
-                border-radius: 6px;
-            }
-
-            .btn-submit {
+            .btn-back {
+                margin-top: 30px;
                 width: 100%;
-                height: 60px;
-                font-size: 18px;
+                height: 50px;
                 background-color: #1e1e1e;
                 color: white;
                 border: none;
-                margin-top: 30px;
+                font-size: 18px;
                 border-radius: 10px;
             }
 
-            .btn-submit:hover {
-                background-color: #343a40;
+            .btn-back:hover {
+                background-color: #333;
+            }
+
+            .btn a {
+                text-decoration: none;
+                color: inherit;
             }
         </style>
     </head>
 
     <body>
         <div class="container">
-            <h1>Confirm Your Reservation</h1>
+            <h1>Booking Confirmed</h1>
+            <h5>Your reservation was successful!</h5>
 
-            <form>
-                <div class="row mt-5">
-                    <div class="col-md-6">
-                        <div class="mb-4">
-                            <label>Movie</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light w-100 dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown">
-                                    Select Movie
-                                </button>
-                                <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="#">Minecraft Movie</a></li>
-                                    <li><a class="dropdown-item" href="#">Barbie Movie</a></li>
-                                    <li><a class="dropdown-item" href="#">Frozen</a></li>
-                                </ul>
-                            </div>
-                        </div>
+            <div class="details-box mt-5">
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label>Movie:</label>
+                        <p>Minecraft Movie</p>
 
-                        <div class="mb-4">
-                            <label>Time Slot</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light w-100 dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown">
-                                    Select Time
-                                </button>
-                                <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="#">12:00</a></li>
-                                    <li><a class="dropdown-item" href="#">15:00</a></li>
-                                    <li><a class="dropdown-item" href="#">19:00</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <label>Time Slot:</label>
+                        <p>15:00</p>
 
-                        <div class="mb-4">
-                            <label>Tickets</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light w-100 dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown">
-                                    Select Tickets
-                                </button>
-                                <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="#">1</a></li>
-                                    <li><a class="dropdown-item" href="#">2</a></li>
-                                    <li><a class="dropdown-item" href="#">3 (Maximum)</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <label>Tickets:</label>
+                        <p>2</p>
 
-                        <div class="mb-4">
-                            <label>Cinema Room</label>
-                            <input type="text" class="form-control-plaintext" readonly value="Cinema 4">
-                        </div>
+                        <label>Cinema Room:</label>
+                        <p>Cinema 4</p>
                     </div>
+                    <div class="col-md-6 mb-4">
+                        <label>Name:</label>
+                        <p>John Doe</p>
 
-                    <div class="col-md-6">
-                        <div class="mb-4">
-                            <label>Name</label>
-                            <input type="text" class="form-control" placeholder="Your name">
-                        </div>
+                        <label>Contact Number:</label>
+                        <p>09123456789</p>
 
-                        <div class="mb-4">
-                            <label>Contact Number</label>
-                            <input type="text" class="form-control" placeholder="e.g. 09123456789">
-                        </div>
+                        <label>Email:</label>
+                        <p>johndoe@example.com</p>
 
-                        <div class="mb-4">
-                            <label>Email</label>
-                            <input type="email" class="form-control" placeholder="you@example.com">
-                        </div>
-
-                        <div class="mb-4">
-                            <label>Payment Method</label>
-                            <div class="dropdown">
-                                <button class="btn btn-light w-100 dropdown-toggle" type="button"
-                                    data-bs-toggle="dropdown">
-                                    Select Payment
-                                </button>
-                                <ul class="dropdown-menu w-100">
-                                    <li><a class="dropdown-item" href="#">Online Payment</a></li>
-                                    <li><a class="dropdown-item" href="#">Over the Counter</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                        <label>Payment Method:</label>
+                        <p>Online Payment</p>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4">
-                    <button type="submit" class="btn btn-submit">Submit</button>
-                </div>
-            </form>
+            <div class="mt-4">
+                <button class="btn btn-back"><a href="/home">Back to Home</a></button>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     </body>
 @endsection
