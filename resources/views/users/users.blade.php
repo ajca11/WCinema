@@ -111,47 +111,24 @@
         </thead>
 
         <tbody>
+          @foreach ($users as $user)
           <tr>
-            <th scope="row">1</th>
-            <td>Mark Otto</td>
-            <td>mark.otto@example.com</td>
-            <td>123-456-7890</td>
-            <td>markotto</td>
-            <td>••••••</td>
-            <td>
-              <button type="button" class="btn btn-light">
-                <a href="/edituser" aria-label="System Users">Edit</a>
-            </button>
-                <div class = "btn btn-dark"> Delete </div>
-            </td>
+              <th scope="row">{{ $user->id }}</th>
+              <td>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
+              <td>{{ $user->phone_number }}</td>
+              <td>{{ $user->username }}</td>
+              <td>{{ $user->password }}</td> 
+              <td>
+                  <a href="{{ route('users.edituser', $user->id) }}" class="btn btn-light">Edit</a>
+                  <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="btn btn-dark" onclick="return confirm('Delete this user?')">Delete</button>
+                  </form>
+              </td>
           </tr>
-          
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob Thornton</td>
-            <td>jacob.t@example.com</td>
-            <td>098-765-4321</td>
-            <td>jacobt</td>
-            <td>••••••</td>
-            <td>
-                <div class = "btn btn-light"> Edit </div>
-                <div class = "btn btn-dark"> Delete </div>
-            </td>
-          </tr>
-
-          <tr>
-            <th scope="row">3</th>
-            <td>John Doe</td>
-            <td>john.doe@example.com</td>
-            <td>555-555-5555</td>
-            <td>johnd</td>
-            <td>••••••</td>
-            <td>
-                <div class = "btn btn-light"> Edit </div>
-                <div class = "btn btn-dark"> Delete </div>
-            </td>
-          </tr>
-
+      @endforeach      
         </tbody>
       </table>
     </div>

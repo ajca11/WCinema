@@ -122,7 +122,6 @@
             </div>
 
             <button type="submit" class="btn btn-dark">Save Changes</button>
-            <button type="reset" class="btn btn-light">Reset</button>
         </form>
 
     </div>

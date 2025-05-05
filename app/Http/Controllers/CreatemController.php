@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
-class EditMoviesController extends Controller
+class CreatemController extends Controller
 {
     public function index(){
         
-        return view('manage.editmovies');
+        return view('manage.createm');
     }
 }
