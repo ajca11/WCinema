@@ -55,20 +55,20 @@
             }
 
             .btn-light {
-            background-color: #f8f9fa;
-            color: #333;
-            border: none;
-        }
+                background-color: #f8f9fa;
+                color: #333;
+                border: none;
+            }
 
-        .btn-light:hover {
-            background-color: #e2e6ea;
-            color: #000;
-        }
+            .btn-light:hover {
+                background-color: #e2e6ea;
+                color: #000;
+            }
 
-        .btn a {
-            text-decoration: none;
-            color: inherit;
-        }
+            .btn a {
+                text-decoration: none;
+                color: inherit;
+            }
         </style>
     </head>
 
@@ -163,7 +163,8 @@
                 </div>
 
                 <div class="mt-4">
-                    <button type="submit" class="btn btn-submit"><a href="/confirmation" aria-label="System Users"> Sumbit </a> </button>
+                    <button type="submit" class="btn btn-submit"><a href="/confirmation" aria-label="System Users"> Sumbit
+                        </a> </button>
                 </div>
             </form>
         </div>

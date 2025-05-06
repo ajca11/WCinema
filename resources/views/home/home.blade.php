@@ -1,8 +1,9 @@
 @extends('template.main')
 
 @section('content')
-    <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teachers:wght@400..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
     <style>
         body {
             font-family: 'Teachers', sans-serif;
@@ -10,16 +11,16 @@
 
         .carousel-wrapper {
             position: relative;
-            padding: 40px;
+            padding: 40px 20px;
         }
 
         .scroll-container {
             display: flex;
-            overflow-x: scroll;
+            overflow-x: auto;
             gap: 20px;
-            scroll-behavior: smooth;
             scroll-snap-type: x mandatory;
-            -ms-overflow-style: none;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
             scrollbar-width: none;
         }
 
@@ -29,11 +30,11 @@
 
         .movie-card {
             flex: 0 0 auto;
-            width: 400px;
+            width: 350px;
             background-color: #f8f9fa;
-            padding: 20px;
             border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
             scroll-snap-align: start;
         }
 
@@ -63,22 +64,27 @@
 
         .btn-book {
             margin-top: 10px;
-            font-size: 14px;
             width: 100%;
-            height: 40px;
+            height: 45px;
             background-color: #343a40;
             color: white;
             border: none;
-            transition: 0.3s ease;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.2;
         }
 
         .btn-book:hover {
             background-color: #23272b;
         }
 
+
         .carousel-controls {
             text-align: center;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
         .carousel-button {
@@ -96,94 +102,78 @@
         .carousel-button:hover {
             background-color: #23272b;
         }
+
+        .welcome {
+            height: 350px;
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        footer a {
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: #000;
+        }
     </style>
 
-    <h1 class="text-center mt-4 mb-2" style="font-weight: 600;">Now Showing</h1>
+    <div class="container card welcome mb-5">
+        Welcome!
+    </div>
 
+    <h1 class="text-center mt-4 mb-2 fw-semibold">Now Showing</h1>
     <div class="carousel-wrapper">
-        <div class="scroll-container" id="movieSlider">
-
-            <div class="movie-card">
-                <h2 class="movie-title">A Minecraft Movie</h2>
-                <p class="movie-subinfo">2025 • PG • 1hr 40min</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BYzFjMzNjOTktNDBlNy00YWZhLWExYTctZDcxNDA4OWVhOTJjXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                    class="movie-poster">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Jack Black, Jason Momoa</p>
-                    <p><strong>Director:</strong> Jared Hess</p>
-                    <p><strong>Time:</strong> 12:00 | 15:00 | 18:00</p>
+        <div class="scroll-container" id="slider-0">
+            @foreach ($movies as $movie)
+                <div class="movie-card">
+                    <h2 class="movie-title">{{ $movie->title }}</h2>
+                    <p class="movie-subinfo">{{ $movie->year }} / {{ $movie->rated }} / {{ $movie->duration }}</p>
+                    <img src="{{ $movie->picture }}" class="movie-poster" alt="Poster of {{ $movie->title }}">
+                    <div class="movie-details">
+                        <p><strong>Cast:</strong> {{ $movie->main_cast }}</p>
+                        <p><strong>Director:</strong> {{ $movie->director }}</p>
+                        <p><strong>Time:</strong> {{ $movie->time_slots }}</p>
+                    </div>
+                    <a href="/booking" class="btn btn-book">Book Now</a>
                 </div>
-                <button class="btn-book">Book Now</button>
-            </div>
-
-            <div class="movie-card">
-                <h2 class="movie-title">Frozen Kingdom</h2>
-                <p class="movie-subinfo">2024 • G • 1hr 30min</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_.jpg"
-                    class="movie-poster">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Idina Menzel, Kristen Bell</p>
-                    <p><strong>Director:</strong> Chris Buck</p>
-                    <p><strong>Time:</strong> 11:00 | 14:00 | 17:00</p>
-                </div>
-                <button class="btn-book">Book Now</button>
-            </div>
-
-            <div class="movie-card">
-                <h2 class="movie-title">Fast X</h2>
-                <p class="movie-subinfo">2023 • PG-13 • 2hr 10min</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BYzEwZjczOTktYzU1OS00YjJlLTgyY2UtNWEzODBlN2RjZDEwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
-                    class="movie-poster">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Vin Diesel, Jason Momoa</p>
-                    <p><strong>Director:</strong> Louis Leterrier</p>
-                    <p><strong>Time:</strong> 13:00 | 16:00 | 19:00</p>
-                </div>
-                <button class="btn-book"><a href="/booking" aria-label="System Users">Book Now</a></button>
-            </div>
-
-            <div class="movie-card">
-                <h2 class="movie-title">Inside Out 2</h2>
-                <p class="movie-subinfo">2025 • PG • 1hr 35min</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_.jpg"
-                    class="movie-poster">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Amy Poehler, Maya Hawke</p>
-                    <p><strong>Director:</strong> Kelsey Mann</p>
-                    <p><strong>Time:</strong> 10:00 | 13:00 | 18:00</p>
-                </div>
-                <button class="btn-book">Book Now</button>
-            </div>
-
-            <div class="movie-card">
-                <h2 class="movie-title">Barbie</h2>
-                <p class="movie-subinfo">2023 • PG • 2hr 5min</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BYjI3NDU0ZGYtYjA2YS00Y2RlLTgwZDAtYTE2YTM5ZjE1M2JlXkEyXkFqcGc@._V1_.jpg"
-                    class="movie-poster">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Margot Robbie, Ryan Gosling</p>
-                    <p><strong>Director:</strong> Greta Gerwig</p>
-                    <p><strong>Time:</strong> 12:00 | 15:00 | 18:00</p>
-                </div>
-                <button class="btn-book">Book Now</button>
-            </div>
-
+            @endforeach
         </div>
-
         <div class="carousel-controls">
-            <button class="carousel-button" onclick="scrollSlider(-1)">&#8592; Prev</button>
-            <button class="carousel-button" onclick="scrollSlider(1)">Next &#8594;</button>
+            <button class="carousel-button" onclick="scrollSlider(0, -1)">&#8592; Prev</button>
+            <button class="carousel-button" onclick="scrollSlider(0, 1)">Next &#8594;</button>
         </div>
     </div>
 
     <script>
-        function scrollSlider(direction) {
-            const container = document.getElementById('movieSlider');
-            const cardWidth = 420;
+        function scrollSlider(index, direction) {
+            const container = document.getElementById(`slider-${index}`);
+            const cardWidth = 370;
             container.scrollBy({
                 left: direction * cardWidth,
                 behavior: 'smooth'
             });
         }
     </script>
+
+    <footer class="bg-light text-dark mt-5 pt-4 pb-3 border-top">
+        <div class="container text-center">
+            <p class="mb-1 fs-5 fw-semibold" style="font-family: 'Poppins', sans-serif;">Ayala Malls Cinema</p>
+            <p class="mb-2 small text-muted">Your trusted cinema reservation platform.</p>
+            <div class="d-flex justify-content-center gap-3 mb-2">
+                <a href="#" class="text-dark text-decoration-none">Home</a>
+                <a href="#" class="text-dark text-decoration-none">About</a>
+                <a href="#" class="text-dark text-decoration-none">Contact</a>
+                <a href="#" class="text-dark text-decoration-none">Support</a>
+            </div>
+            <p class="mb-0 small text-muted">  All rights reserved.</p>
+        </div>
+    </footer>
 @endsection
