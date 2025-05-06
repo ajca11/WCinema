@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Register</h1>
+
+    <!-- Display Validation Errors -->
+    @if ($errors->any())
+        <div style="color: red;">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <form action="/register" method="POST">
+        @csrf
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="password_confirmation">Confirm Password:</label>
+        <input type="password" id="password_confirmation" name="password_confirmation" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
