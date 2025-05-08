@@ -21,9 +21,9 @@
 
         .container {
             max-width: 500px;
-            margin-top: 220px;
+            margin-top: 180px;
             padding: 2rem;
-            background-color: #f3f3f3;
+            background-color: #f8f9fa;
             border-radius: 20px;
         }
 
@@ -42,7 +42,7 @@
 
         .form-control {
             border-radius: 20px;
-            background-color: #e2e2e2;
+            background-color:rgb(234, 232, 232);
             padding: 12px 16px;
             font-size: 1rem;
         }
@@ -53,7 +53,7 @@
             margin-top: 20px;
             border-radius: 30px;
             font-size: 1.1rem;
-            background-color: #575757;
+            background-color:rgb(159, 158, 158);
             color: #fff;
             transition: background-color 0.3s ease;
         }

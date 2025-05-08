@@ -152,6 +152,29 @@
         </div>
     </div>
 
+    <h1 class="text-center mt-4 mb-2 fw-semibold">Coming Soon</h1>
+    <div class="carousel-wrapper">
+        <div class="scroll-container" id="slider-0">
+            @foreach ($movies as $movie)
+                <div class="movie-card">
+                    <h2 class="movie-title">{{ $movie->title }}</h2>
+                    <p class="movie-subinfo">{{ $movie->year }} / {{ $movie->rated }} / {{ $movie->duration }}</p>
+                    <img src="{{ $movie->picture }}" class="movie-poster" alt="Poster of {{ $movie->title }}">
+                    <div class="movie-details">
+                        <p><strong>Cast:</strong> {{ $movie->main_cast }}</p>
+                        <p><strong>Director:</strong> {{ $movie->director }}</p>
+                        <p><strong>Time:</strong> {{ $movie->time_slots }}</p>
+                    </div>
+                    <a href="/booking" class="btn btn-book">Book Now</a>
+                </div>
+            @endforeach
+        </div>
+        <div class="carousel-controls">
+            <button class="carousel-button" onclick="scrollSlider(0, -1)">&#8592; Prev</button>
+            <button class="carousel-button" onclick="scrollSlider(0, 1)">Next &#8594;</button>
+        </div>
+    </div>
+
     <script>
         function scrollSlider(index, direction) {
             const container = document.getElementById(`slider-${index}`);

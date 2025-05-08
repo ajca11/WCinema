@@ -22,7 +22,7 @@
 
         .container {
             max-width: 600px;
-            margin-top: 230px;
+            margin-top: 170px;
         }
 
         h1 {
@@ -85,29 +85,6 @@
         <button type="button" class="btn btn-light">
             <a href="/login" aria-label="View Reservations">Log Out</a>
         </button>
-
-        <!-- User Table -->
-        <h2 class="mt-5">User List</h2>
-        <table class="table table-striped mt-3">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Username</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->username }}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
 
     </div>
 
