@@ -1,0 +1,110 @@
+[33mcommit 7eecf03bf66591d782776f1b6ede3973990390a6[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 32a150d a163d2b
+Author: Kardel123 <154974043+Kardel123@users.noreply.github.com>
+Date:   Tue May 6 15:25:03 2025 +0800
+
+    `Refactored database migration and routes for user registration and login functionality`
+
+[33mcommit 32a150df1b65f85c92822a41747180f5bb2a5c42[m
+Author: Kardel123 <154974043+Kardel123@users.noreply.github.com>
+Date:   Tue May 6 15:20:28 2025 +0800
+
+    Implement user registration functionality: add validation, user creation, and registration view.
+
+[33mcommit a163d2bdea8715fc8331701b6b950dc5ea650008[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Tue May 6 11:04:09 2025 +0800
+
+    Updated home page and connected to database
+
+[33mcommit 7f9e411ec3d834382fc7a9603c6fe91c56be3e5d[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Tue May 6 00:10:46 2025 +0800
+
+    Booking Confirmation form added
+
+[33mcommit aba06ce6960b2821963189f86b0b76712b8b48b5[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Mon May 5 23:51:41 2025 +0800
+
+    Done on Reflecting datas in Devmode and Add Movie Form
+
+[33mcommit 3105420dd373754be12ae76e4c2ea0fc9b100efc[m
+Merge: 9ec932c 3cd128f
+Author: ajca11 <aleahcordova123@gmail.com>
+Date:   Sun May 4 01:30:56 2025 +0800
+
+    Merge branch 'main' of https://github.com/ajca11/WCinema
+
+[33mcommit 9ec932c911926f1eaea174d41a221b187233edc5[m
+Author: ajca11 <aleahcordova123@gmail.com>
+Date:   Sun May 4 01:30:49 2025 +0800
+
+    Dev: Added edit on all; Add movies left to do. | User: Done now showing & confirmation
+
+[33mcommit 3cd128ffc38cf61c55b5229535411fccbc74bdf0[m
+Merge: 2eb331a 33aa249
+Author: Kardel123 <154974043+Kardel123@users.noreply.github.com>
+Date:   Sat May 3 22:46:18 2025 +0800
+
+    Merge branch 'main' of https://github.com/ajca11/WCinema
+
+[33mcommit 2eb331a98e77359971dc694551ddaf4ffcf9c8b1[m
+Author: Kardel123 <154974043+Kardel123@users.noreply.github.com>
+Date:   Sat May 3 22:46:14 2025 +0800
+
+    Enhance ManageController to fetch and display all movies; update user migration to include phone number and username fields; modify DatabaseSeeder to call User, Movie, and Reservation seeders.
+
+[33mcommit 33aa249910cadce48c811d18e618074636dd3d55[m
+Author: Aleah Jelein C. Arevalo <140843332+ajca11@users.noreply.github.com>
+Date:   Sat May 3 22:26:03 2025 +0800
+
+    Update README.md
+
+[33mcommit 92699ccee29d2ed55a9bfab89472528e4f52e3ef[m
+Author: ajca11 <aleahcordova123@gmail.com>
+Date:   Sat May 3 20:54:31 2025 +0800
+
+    Done All Dev Mode except for Add Movie, Edit, and Delete
+
+[33mcommit cf85824e937d19c7b0ec0ef61cfe01384fffaa38[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Tue Apr 29 18:56:41 2025 +0800
+
+    Started Dev (Home Page) & Confirmation
+
+[33mcommit debf402750996691ad0853925cafb38254010ebf[m
+Author: ajca11 <aleahcordova123@gmail.com>
+Date:   Tue Apr 29 00:38:11 2025 +0800
+
+    Done: Login and Register; Start: Home and Movie Details
+    
+    Header (Nav): Kind of done but lack Company Logo
+    Login and Register : Lacking Background
+    Home: Lacking Trailers Board but prioritize Showing and CS inputs
+    Movie D: The picture cant be sized but aside from that goods already
+
+[33mcommit d7e7c6ded0e500519312efc070c86c8d44cae1ca[m
+Merge: 204bd71 1a56220
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Mon Apr 28 16:31:56 2025 +0800
+
+    Merge branch 'main' of https://github.com/ajca11/WCinema
+
+[33mcommit 204bd71a86edf59888a618ead5cf3a00c90d4344[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Mon Apr 28 16:31:31 2025 +0800
+
+    Edited Login Pafe
+
+[33mcommit 1a562202651ea548b72bac583cc3f3430601c508[m
+Author: Aleah Jelein C. Arevalo <140843332+ajca11@users.noreply.github.com>
+Date:   Thu Apr 24 23:26:51 2025 +0800
+
+    README.md
+
+[33mcommit aec694e61952bd6db8ff4095d1543e4a5f8fd89f[m
+Author: Aleah11 <aleahcordova123@gmail.com>
+Date:   Thu Apr 24 23:18:38 2025 +0800
+
+    Initial commit

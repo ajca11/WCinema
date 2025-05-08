@@ -29,7 +29,6 @@ class RegistrationController extends Controller
 
         // Save the user to the database
         User::create($validatedData);
-        dd('User created successfully'); // Debugging line
 
         // Redirect to a confirmation page or login page
         return redirect('/login')->with('success', 'Registration successful! Please log in.');
