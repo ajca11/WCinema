@@ -7,12 +7,16 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\BookingController;
+
+Route::get('/booking', [BookingController::class, 'index'])->name('details.booking');
+
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
 Route::post('/login', 'App\Http\Controllers\LoginController@auth');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@index');
 Route::get('/registration', 'App\Http\Controllers\RegistrationController@index');
-Route::post('/register', 'App\Http\Controllers\RegistrationController@store'); // New route for registration
+Route::post('/register', 'App\Http\Controllers\RegistrationController@store'); 
 
 Route::get('/movie', 'App\Http\Controllers\MdetailsController@index');
 Route::get('/confirmation', 'App\Http\Controllers\ConfirmationController@index');
@@ -41,5 +45,10 @@ Route::get('/reservations/edit/{id}', [ReservationController::class, 'edit'])->n
 Route::put('/reservations/update/{id}', [ReservationController::class, 'update'])->name('reservations.update');
 Route::delete('/reservations/delete/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
 
+Route::get('/booking', [ReservationController::class, 'showForm'])->name('details.booking');
+Route::post('/booking', [ReservationController::class, 'store'])->name('reservation.store');
 
+Route::get('/confirmation', function () {
+    return view('details.confirmation');
+});
 

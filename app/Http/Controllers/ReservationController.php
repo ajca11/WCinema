@@ -16,6 +16,12 @@ class ReservationController extends Controller
         ]);
     }
 
+    public function showForm()
+    {
+        $movies = Movie::all();
+        return view('details.booking', compact('movies')); // Pass the movies to the view
+    }
+
     public function edit($id)
     {
         $reservation = Reservation::findOrFail($id);
@@ -41,6 +47,22 @@ class ReservationController extends Controller
         $reservation->update($request->all());
 
         return redirect()->route('reservations.reservation')->with('success', 'Reservation deleted successfully');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'movie_id' => 'required|exists:movies,id',
+            'time_slot' => 'required|string',
+            'tickets' => 'required|integer|min:1|max:3',
+            'cinema_room' => 'required|string',
+            'name' => 'required|string|max:255',
+            'contact_number' => 'required|string|max:15',
+            'email' => 'required|email',
+            'payment_method' => 'required|string|in:online,counter',
+        ]);
+
+        return redirect()->route('details.booking')->with('success', 'Reservation successfully made!');
     }
 
     public function destroy($id)
