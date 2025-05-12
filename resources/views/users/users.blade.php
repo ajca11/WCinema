@@ -105,7 +105,6 @@
             <th scope="col">Email</th>
             <th scope="col">Phone Number</th>
             <th scope="col">Username</th>
-            <th scope="col">Password</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -118,7 +117,6 @@
               <td>{{ $user->email }}</td>
               <td>{{ $user->phone_number }}</td>
               <td>{{ $user->username }}</td>
-              <td>{{ $user->password }}</td> 
               <td>
                   <a href="{{ route('users.edituser', $user->id) }}" class="btn btn-light">Edit</a>
                   <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">

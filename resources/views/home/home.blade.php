@@ -129,6 +129,17 @@
         Welcome!
     </div>
 
+    <div class="dropdown" style="position: absolute; top: 20px; right: 20px;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            More
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li>
+                <a href="/logout" class="dropdown-item">Logout</a>
+            </li>
+        </ul>
+    </div>
+
     <h1 class="text-center mt-4 mb-2 fw-semibold">Now Showing</h1>
     <div class="carousel-wrapper">
         <div class="scroll-container" id="slider-0">

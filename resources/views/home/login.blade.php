@@ -96,13 +96,13 @@
             @csrf()
 
             <div class="mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input type="text" name="username" class="form-control" id="username" required>
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
             </div>
 
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="password" required>
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
             </div>
 
             <button type="submit" class="btn btn-submit">Login</button>

@@ -6,11 +6,12 @@ use App\Http\Controllers\ManageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/login', 'App\Http\Controllers\LoginController@index');
 Route::post('/login', 'App\Http\Controllers\LoginController@auth');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->middleware('auth');
 Route::get('/registration', 'App\Http\Controllers\RegistrationController@index');
 Route::post('/register', 'App\Http\Controllers\RegistrationController@store'); // New route for registration
 
@@ -40,6 +41,13 @@ Route::get('/reservations/reservation', [ReservationController::class, 'edit'])-
 Route::get('/reservations/edit/{id}', [ReservationController::class, 'edit'])->name('reservations.editreserve');
 Route::put('/reservations/update/{id}', [ReservationController::class, 'update'])->name('reservations.update');
 Route::delete('/reservations/delete/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/logout', function() {
+    Auth::logout();
+    return redirect('/login');
+});
 
 
 
