@@ -166,25 +166,85 @@
     <h1 class="text-center mt-4 mb-2 fw-semibold">Coming Soon</h1>
     <div class="carousel-wrapper">
         <div class="scroll-container" id="slider-0">
-            @foreach ($movies as $movie)
-                <div class="movie-card">
-                    <h2 class="movie-title">{{ $movie->title }}</h2>
-                    <p class="movie-subinfo">{{ $movie->year }} / {{ $movie->rated }} / {{ $movie->duration }}</p>
-                    <img src="{{ $movie->picture }}" class="movie-poster" alt="Poster of {{ $movie->title }}">
-                    <div class="movie-details">
-                        <p><strong>Cast:</strong> {{ $movie->main_cast }}</p>
-                        <p><strong>Director:</strong> {{ $movie->director }}</p>
-                        <p><strong>Time:</strong> {{ $movie->time_slots }}</p>
-                    </div>
-                    <a href="/booking" class="btn btn-book">Book Now</a>
+            <div class="movie-card">
+                <h2 class="movie-title">Dune: Part Two</h2>
+                <p class="movie-subinfo">2024 / PG-13 / 2h 46m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BNTc0YmQxMjEtODI5MC00NjFiLTlkMWUtOGQ5NjFmYWUyZGJhXkEyXkFqcGc@._V1_.jpg"
+                    class="movie-poster" alt="Poster of Dune: Part Two">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Timothée Chalamet, Zendaya, Rebecca Ferguson</p>
+                    <p><strong>Director:</strong> Denis Villeneuve</p>
+                    <p><strong>Time:</strong> 1:30 PM, 4:00 PM, 7:30 PM</p>
                 </div>
-            @endforeach
-        </div>
-        <div class="carousel-controls">
-            <button class="carousel-button" onclick="scrollSlider(0, -1)">&#8592; Prev</button>
-            <button class="carousel-button" onclick="scrollSlider(0, 1)">Next &#8594;</button>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
+            <div class="movie-card">
+                <h2 class="movie-title">Deadpool & Wolverine</h2>
+                <p class="movie-subinfo">2024 / R / 2h 7m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BZTk5ODY0MmQtMzA3Ni00NGY1LThiYzItZThiNjFiNDM4MTM3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+                    class="movie-poster" alt="Poster of Deadpool & Wolverine">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Ryan Reynolds, Hugh Jackman</p>
+                    <p><strong>Director:</strong> Shawn Levy</p>
+                    <p><strong>Time:</strong> 12:00 PM, 3:00 PM, 6:00 PM</p>
+                </div>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
+            <div class="movie-card">
+                <h2 class="movie-title">Inside Out 2</h2>
+                <p class="movie-subinfo">2024 / PG / 1h 40m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BYWY3MDE2Y2UtOTE3Zi00MGUzLTg2MTItZjE1ZWVkMGVlODRmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+                    class="movie-poster" alt="Poster of Inside Out 2">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Amy Poehler, Maya Hawke</p>
+                    <p><strong>Director:</strong> Kelsey Mann</p>
+                    <p><strong>Time:</strong> 11:00 AM, 2:00 PM, 5:00 PM</p>
+                </div>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
+            <div class="movie-card">
+                <h2 class="movie-title">A Quiet Place: Day One</h2>
+                <p class="movie-subinfo">2024 / PG-13 / 1h 50m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BMDdjZTljZWMtMDIwNi00MTA5LTkxZmItNmY0NDA3ZDM0N2M2XkEyXkFqcGc@._V1_.jpg"
+                    class="movie-poster" alt="Poster of A Quiet Place: Day One">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Lupita Nyong'o, Joseph Quinn</p>
+                    <p><strong>Director:</strong> Michael Sarnoski</p>
+                    <p><strong>Time:</strong> 1:00 PM, 4:30 PM, 8:00 PM</p>
+                </div>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
+            <div class="movie-card">
+                <h2 class="movie-title">Joker: Folie à Deux</h2>
+                <p class="movie-subinfo">2024 / R / 2h 12m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BNTRlNmU1NzEtODNkNC00ZGM3LWFmNzQtMjBlMWRiYTcyMGRhXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+                    class="movie-poster" alt="Poster of Joker: Folie à Deux">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Joaquin Phoenix, Lady Gaga</p>
+                    <p><strong>Director:</strong> Todd Phillips</p>
+                    <p><strong>Time:</strong> 2:00 PM, 5:00 PM, 9:00 PM</p>
+                </div>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
+            <div class="movie-card">
+                <h2 class="movie-title">Mufasa: The Lion King</h2>
+                <p class="movie-subinfo">2024 / PG / 1h 55m</p>
+                <img src="https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg"
+                    class="movie-poster" alt="Poster of Mufasa: The Lion King">
+                <div class="movie-details">
+                    <p><strong>Cast:</strong> Aaron Pierre, Kelvin Harrison Jr.</p>
+                    <p><strong>Director:</strong> Barry Jenkins</p>
+                    <p><strong>Time:</strong> 10:00 AM, 1:00 PM, 4:00 PM</p>
+                </div>
+                <a href="/booking" class="btn btn-book">Book Now</a>
+            </div>
         </div>
     </div>
+    <div class="carousel-controls">
+        <button class="carousel-button" onclick="scrollSlider(0, -1)">&#8592; Prev</button>
+        <button class="carousel-button" onclick="scrollSlider(0, 1)">Next &#8594;</button>
+    </div>
+</div>
 
     <script>
         function scrollSlider(index, direction) {
@@ -207,7 +267,7 @@
                 <a href="#" class="text-dark text-decoration-none">Contact</a>
                 <a href="#" class="text-dark text-decoration-none">Support</a>
             </div>
-            <p class="mb-0 small text-muted">  All rights reserved.</p>
+            <p class="mb-0 small text-muted"> All rights reserved.</p>
         </div>
     </footer>
 @endsection
