@@ -72,53 +72,61 @@
 
         <h2>Edit Reservation</h2>
 
-        <form>
+        <form method="POST" action="{{ route('reservations.update', $reservation->id) }}">
+            @csrf
+            @method('PUT')
+            
             <div class="mb-3">
-                <label for="movie" class="form-label">Movie</label>
-                <input type="text" class="form-control" id="movie" value="Frozen">
+                <label for="movie_id" class="form-label">Movie</label>
+                <select class="form-control" name="movie_id" required>
+                    @foreach($movies as $movie)
+                        <option value="{{ $movie->id }}" {{ $reservation->movie_id == $movie->id ? 'selected' : '' }}>
+                            {{ $movie->title }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
 
             <div class="mb-3">
-                <label for="timeSlot" class="form-label">Time Slot</label>
-                <input type="time" class="form-control" id="timeSlot" value="12:00">
+                <label for="time_slot" class="form-label">Time Slot</label>
+                <input type="text" class="form-control" name="time_slot" value="{{ $reservation->time_slot }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="tickets" class="form-label">Tickets</label>
-                <input type="number" class="form-control" id="tickets" value="2" min="1">
+                <input type="number" class="form-control" name="tickets" value="{{ $reservation->tickets }}" min="1" required>
             </div>
 
             <div class="mb-3">
-                <label for="cinemaRoom" class="form-label">Cinema Room</label>
-                <input type="number" class="form-control" id="cinemaRoom" value="1" min="1">
+                <label for="cinema_room" class="form-label">Cinema Room</label>
+                <input type="number" class="form-control" name="cinema_room" value="{{ $reservation->cinema_room }}" min="1" required>
             </div>
 
             <div class="mb-3">
-                <label for="fullName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="fullName" value="Cappucina Ballerina">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" name="name" value="{{ $reservation->name }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="contact" class="form-label">Contact Number</label>
-                <input type="tel" class="form-control" id="contact" value="09632184218">
+                <label for="contact_number" class="form-label">Contact Number</label>
+                <input type="tel" class="form-control" name="contact_number" value="{{ $reservation->contact_number }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email Address</label>
-                <input type="email" class="form-control" id="email" value="capballrina@gmail.con">
+                <input type="email" class="form-control" name="email" value="{{ $reservation->email }}" required>
             </div>
 
             <div class="mb-3">
-                <label for="payment" class="form-label">Payment Method</label>
-                <select class="form-select" id="payment">
-                    <option selected>Online Payment</option>
-                    <option>Cash</option>
-                    <option>Credit Card</option>
+                <label for="payment_method" class="form-label">Payment Method</label>
+                <select class="form-select" name="payment_method" required>
+                    <option value="online" {{ $reservation->payment_method == 'online' ? 'selected' : '' }}>Online Payment</option>
+                    <option value="counter" {{ $reservation->payment_method == 'counter' ? 'selected' : '' }}>Counter Payment</option>
                 </select>
             </div>
 
             <button type="submit" class="btn btn-dark">Save Changes</button>
-            <button type="reset" class="btn btn-light">Reset</button>
+            <a href="{{ route('reservations.reservation') }}" class="btn btn-light">Cancel</a>
         </form>
     </div>
 

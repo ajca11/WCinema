@@ -33,7 +33,7 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::findOrFail($id);
 
-        $request->validate([
+        $validated = $request->validate([
             'movie_id' => 'required|exists:movies,id',
             'time_slot' => 'required|string',
             'tickets' => 'required|integer|min:1',
@@ -41,12 +41,12 @@ class ReservationController extends Controller
             'name' => 'required|string|max:255',
             'contact_number' => 'required|string|max:20',
             'email' => 'required|email|max:255',
-            'payment_method' => 'required|string',
+            'payment_method' => 'required|string|in:online,counter',
         ]);
 
-        $reservation->update($request->all());
+        $reservation->update($validated);
 
-        return redirect()->route('reservations.reservation')->with('success', 'Reservation deleted successfully');
+        return redirect()->route('reservations.reservation')->with('success', 'Reservation updated successfully');
     }
 
     public function store(Request $request)
@@ -62,7 +62,27 @@ class ReservationController extends Controller
             'payment_method' => 'required|string|in:online,counter',
         ]);
 
-        return redirect()->route('details.booking')->with('success', 'Reservation successfully made!');
+        // Create the reservation
+        $reservation = Reservation::create($validated);
+
+        // Get the movie details
+        $movie = Movie::find($validated['movie_id']);
+
+        // Store reservation details in session
+        session([
+            'reservation' => [
+                'movie_title' => $movie->title,
+                'time_slot' => $validated['time_slot'],
+                'tickets' => $validated['tickets'],
+                'cinema_room' => $validated['cinema_room'],
+                'name' => $validated['name'],
+                'contact_number' => $validated['contact_number'],
+                'email' => $validated['email'],
+                'payment_method' => $validated['payment_method'],
+            ]
+        ]);
+
+        return redirect()->route('details.confirmation');
     }
 
     public function destroy($id)

@@ -6,8 +6,14 @@ use Illuminate\Http\RedirectResponse;
 
 class ConfirmationController extends Controller
 {
-    public function index(){
+    public function index()
+    {
+        $reservation = session('reservation');
         
-        return view('details.confirmation');
+        if (!$reservation) {
+            return redirect()->route('details.booking');
+        }
+        
+        return view('details.confirmation', compact('reservation'));
     }
 }

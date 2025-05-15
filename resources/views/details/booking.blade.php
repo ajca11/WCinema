@@ -76,10 +76,15 @@
 
                     <div class="mb-4">
                         <label>Movie</label>
-                        <select class="form-control" name="movie_id" required>
+                        <select class="form-control" name="movie_id" id="movieSelect" required onchange="updateMovieDetails()">
                             <option value="">Select Movie</option>
                             @foreach ($movies as $movie)
-                                <option value="{{ $movie->id }}" {{ old('movie_id') == $movie->id ? 'selected' : '' }}>{{ $movie->title }}</option>
+                                <option value="{{ $movie->id }}" 
+                                    data-time-slots="{{ $movie->time_slots }}"
+                                    data-cinema-room="{{ $movie->cinema_room }}"
+                                    {{ old('movie_id') == $movie->id ? 'selected' : '' }}>
+                                    {{ $movie->title }}
+                                </option>
                             @endforeach
                         </select>
                         @error('movie_id')
@@ -89,13 +94,8 @@
 
                     <div class="mb-4">
                         <label>Time Slot</label>
-                        <select class="form-control" name="time_slot" required>
+                        <select class="form-control" name="time_slot" id="timeSlotSelect" required>
                             <option value="">Select Time</option>
-                            @foreach ($movies as $movie)
-                                @foreach (explode(',', $movie->time_slots) as $slot)
-                                    <option value="{{ $slot }}" {{ old('time_slot') == $slot ? 'selected' : '' }}>{{ $slot }} ({{ $movie->title }})</option>
-                                @endforeach
-                            @endforeach
                         </select>
                         @error('time_slot')
                             <div class="text-danger">{{ $message }}</div>
@@ -117,11 +117,8 @@
 
                     <div class="mb-4">
                         <label>Cinema Room</label>
-                        <select class="form-control" name="cinema_room" required>
+                        <select class="form-control" name="cinema_room" id="cinemaRoomSelect" required>
                             <option value="">Select Room</option>
-                            @foreach ($movies as $movie)
-                                <option value="{{ $movie->cinema_room }}" {{ old('cinema_room') == $movie->cinema_room ? 'selected' : '' }}>Room {{ $movie->cinema_room }} ({{ $movie->title }})</option>
-                            @endforeach
                         </select>
                         @error('cinema_room')
                             <div class="text-danger">{{ $message }}</div>
@@ -170,7 +167,7 @@
             </div>
 
             <div class="mt-4">
-                <button type="submit" class="btn btn-submit"><a href = "/confirmation" style = "color: White"> Submit </a></button>
+                <button type="submit" class="btn btn-submit">Submit</button>
             </div>
         </form>
     </div>
@@ -184,6 +181,43 @@
                 input.value = newValue;
             }
         }
+
+        function updateMovieDetails() {
+            const movieSelect = document.getElementById('movieSelect');
+            const timeSlotSelect = document.getElementById('timeSlotSelect');
+            const cinemaRoomSelect = document.getElementById('cinemaRoomSelect');
+            const selectedOption = movieSelect.options[movieSelect.selectedIndex];
+
+            // Clear existing options
+            timeSlotSelect.innerHTML = '<option value="">Select Time</option>';
+            cinemaRoomSelect.innerHTML = '<option value="">Select Room</option>';
+
+            if (selectedOption.value) {
+                // Update time slots
+                const timeSlots = selectedOption.dataset.timeSlots.split(',');
+                timeSlots.forEach(slot => {
+                    const option = document.createElement('option');
+                    option.value = slot.trim();
+                    option.textContent = slot.trim();
+                    timeSlotSelect.appendChild(option);
+                });
+
+                // Update cinema room
+                const cinemaRoom = selectedOption.dataset.cinemaRoom;
+                const roomOption = document.createElement('option');
+                roomOption.value = cinemaRoom;
+                roomOption.textContent = `Room ${cinemaRoom}`;
+                cinemaRoomSelect.appendChild(roomOption);
+            }
+        }
+
+        // Initialize the form if a movie is pre-selected
+        document.addEventListener('DOMContentLoaded', function() {
+            const movieSelect = document.getElementById('movieSelect');
+            if (movieSelect.value) {
+                updateMovieDetails();
+            }
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
