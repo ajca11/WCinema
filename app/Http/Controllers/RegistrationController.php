@@ -15,7 +15,8 @@ class RegistrationController extends Controller
 
     public function store(Request $request)
     {
-        // Validate the incoming request data
+
+       
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
@@ -24,13 +25,37 @@ class RegistrationController extends Controller
             'username' => 'required|string|unique:users,username|max:255',
         ]);
 
-        // Hash the password
-        $validatedData['password'] = bcrypt($validatedData['password']);
+        // Create the user (password will be hashed in the User model)
+        User::create([
 
-        // Save the user to the database
-        User::create($validatedData);
+            'name' => $request->name,
+'email' => $request->email,
+'password' => Hash::make($request->password),
+'phone_number' => $request->phone_number,
+'username' => $request->username,
+        ]);
 
-        // Redirect to a confirmation page or login page
+        // Redirect to login page
         return redirect('/login')->with('success', 'Registration successful! Please log in.');
+
+
+        try {
+            // Validate the incoming request data
+            // $validatedData = $request->validate([
+            //     'name' => 'required|string|max:255',
+            //     'email' => 'required|email|unique:users,email',
+            //     'password' => 'required|string|min:8|confirmed',
+            //     'phone_number' => 'required|string|max:15',
+            //     'username' => 'required|string|unique:users,username|max:255',
+            // ]);
+
+            // // Create the user (password will be hashed in the User model)
+            // User::create($validatedData);
+
+            // // Redirect to login page
+            // return redirect('/login')->with('success', 'Registration successful! Please log in.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Registration failed. Please try again.'])->withInput();
+        }
     }
 }

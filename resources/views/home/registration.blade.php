@@ -106,32 +106,37 @@
 
         <h1>Register</h1>
 
-        <form method="POST" action="/login">
+        <form method="POST" action="/register">
             @csrf()
 
             <div class="mb-3">
-                <label for="Name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="Name" placeholder="your full name" required>
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="your full name" required>
             </div>
 
             <div class="mb-3">
-                <label for="Email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="Email" placeholder="example@gmail.com" required>
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="example@gmail.com" required>
             </div>
 
             <div class="mb-3">
-                <label for="number" class="form-label">Phone Number</label>
-                <input type="text" class="form-control" id="number" placeholder="0912345678" required>
+                <label for="phone_number" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="0912345678" required>
             </div>
 
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" required>
+                <input type="text" class="form-control" id="username" name="username" required>
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirm Password</label>
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
             </div>
 
             <button type="submit" class="btn btn-submit">Register</button>

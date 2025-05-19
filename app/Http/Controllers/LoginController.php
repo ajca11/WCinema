@@ -13,22 +13,25 @@ class LoginController extends Controller
         return view('home.login');
     }
 
-    public function auth(Request $request): RedirectResponse{
-        $credentials = $request->only('email', 'password');
+    public function auth(Request $request): RedirectResponse
+    {
+        try {
+            $credentials = $request->only('email', 'password');
 
-        Log::info('Request data', $request->all());
+            if (Auth::attempt($credentials)) {
+                // Authentication passed
+                $request->session()->regenerate();
+                return redirect('/home')->with('success', 'Logged in successfully!');
+            }
 
-        if (Auth::attempt($credentials)) {
-            // Authentication passed, save user data in session
-            $request->session()->regenerate();
-            Log::info('User logged in successfully', ['user_id' => Auth::id()]);
-            return redirect('/home')->with('success', 'Logged in successfully!');
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->withInput();
+        } catch (\Exception $e) {
+            return back()->withErrors([
+                'error' => 'An error occurred during login. Please try again.',
+            ])->withInput();
         }
-
-        Log::warning('Failed login attempt', ['email' => $request->input('email')]);
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
     }
 
     public function logout(Request $request)

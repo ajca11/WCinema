@@ -46,9 +46,9 @@ class User extends Authenticatable
     ];
 
     // Example of creating a user
-    public static function create(array $attributes = [])
-    {
-        $attributes['password'] = Hash::make($attributes['password']);
-        return parent::create($attributes);
-    }
+    // public static function create(array $attributes = [])
+    // {
+    //     $attributes['password'] = Hash::make($attributes['password']);
+    //     return parent::create($attributes);
+    // }
 }
