@@ -107,6 +107,7 @@
 
             <button type="submit" class="btn btn-submit">Login</button>
             <p>Not yet a member? <a href="/registration">Register Now</a></p>
+            <p><a href="/devhome">Dev Mode</a></p>
         </form>
     </div>
 

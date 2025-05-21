@@ -62,13 +62,13 @@
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Home</a>
+                        <a class="nav-link" href="/home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Now Showing</a>
+                         <a class="nav-link" href="#now-showing-section">Now Showing</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="#">About Us</a>
+                        <a class="nav-link" href="#coming-soon">Coming Soon</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
