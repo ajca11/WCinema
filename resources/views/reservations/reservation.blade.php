@@ -128,7 +128,7 @@
                         <td>{{ $reservation->payment_method }}</td>
                         <td>
                             <a href="{{ route('reservations.editreserve', $reservation->id) }}" class="btn btn-light">Edit</a>
-                            <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('reservations.destroy', $reservation->id) }}" method="POST" style="display:inline;">   
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-dark" onclick="return confirm('Delete this reservation?')">Delete</button>

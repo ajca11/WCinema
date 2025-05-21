@@ -55,4 +55,29 @@ class ManageController extends Controller
         $movie->delete();
         return redirect()->route('manage.manage')->with('success', 'Movie deleted successfully');
     }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required|string',
+            'year' => 'required|string',
+            'rated' => 'required|string',
+            'duration' => 'required|string',
+            'picture' => 'nullable|image',
+            'description' => 'required|string',
+            'main_cast' => 'required|string',
+            'director' => 'required|string',
+            'genre' => 'required|string',
+            'time_slots' => 'required|string',
+            'cinema_room' => 'required|integer',
+        ]);
+
+        if ($request->hasFile('picture')) {
+            $data['picture'] = $request->file('picture')->store('public/images');
+        }
+
+        Movie::create($data);
+
+        return redirect()->route('manage.index')->with('success', 'Movie added successfully.');
+    }
 }

@@ -38,7 +38,5 @@ class HomeController extends Controller
             'time_slots' => 'required|string',
             'cinema_room' => 'required|integer',
         ]);
-
     }
-
 }

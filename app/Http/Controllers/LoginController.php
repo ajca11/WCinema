@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
-    public function index(){
-        
+    public function index()
+    {
         return view('home.login');
     }
 
@@ -24,13 +24,17 @@ class LoginController extends Controller
                 return redirect('/home')->with('success', 'Logged in successfully!');
             }
 
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])->withInput();
+            return back()
+                ->withErrors([
+                    'email' => 'The provided credentials do not match our records.',
+                ])
+                ->withInput();
         } catch (\Exception $e) {
-            return back()->withErrors([
-                'error' => 'An error occurred during login. Please try again.',
-            ])->withInput();
+            return back()
+                ->withErrors([
+                    'error' => 'An error occurred during login. Please try again.',
+                ])
+                ->withInput();
         }
     }
 
@@ -39,7 +43,7 @@ class LoginController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect('/login');
     }
 }

@@ -62,13 +62,10 @@ class ReservationController extends Controller
             'payment_method' => 'required|string|in:online,counter',
         ]);
 
-        // Create the reservation
         $reservation = Reservation::create($validated);
 
-        // Get the movie details
         $movie = Movie::find($validated['movie_id']);
 
-        // Store reservation details in session
         session([
             'reservation' => [
                 'movie_title' => $movie->title,

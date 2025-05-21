@@ -48,9 +48,15 @@
             color: #000;
         }
 
-        .btn a {
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: #333;
             text-decoration: none;
-            color: inherit;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -58,14 +64,13 @@
 <body>
 
     <div class="container">
-        <button type="button" class="btn btn-light mb-3">
-            <a href="/manage">Back</a>
-        </button>
+        <a href="/manage" class="back-link">&larr; Back</a>
 
         <h2>Add New Movie</h2>
 
-        <form action="{{ route('manage.manage') }}" method="POST" enctype="multipart/form-data">
+       <form action="{{ route('manage.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+
 
             <div class="mb-3">
                 <label for="title" class="form-label">Movie Title</label>
@@ -74,17 +79,20 @@
 
             <div class="mb-3">
                 <label for="year" class="form-label">Year</label>
-                <input type="text" class="form-control" id="year" name="year" placeholder="e.g. 2023" required>
+                <input type="text" class="form-control" id="year" name="year" placeholder="e.g. 2023"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="rated" class="form-label">Rated</label>
-                <input type="text" class="form-control" id="rated" name="rated" placeholder="e.g. PG-13" required>
+                <input type="text" class="form-control" id="rated" name="rated" placeholder="e.g. PG-13"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="duration" class="form-label">Duration</label>
-                <input type="text" class="form-control" id="duration" name="duration" placeholder="e.g. 1hr 45min" required>
+                <input type="text" class="form-control" id="duration" name="duration" placeholder="e.g. 1hr 45min"
+                    required>
             </div>
 
             <div class="mb-3">
@@ -99,7 +107,8 @@
 
             <div class="mb-3">
                 <label for="main_cast" class="form-label">Main Cast</label>
-                <input type="text" class="form-control" id="main_cast" name="main_cast" placeholder="Actor A | Actor B" required>
+                <input type="text" class="form-control" id="main_cast" name="main_cast"
+                    placeholder="Actor A | Actor B" required>
             </div>
 
             <div class="mb-3">
@@ -109,12 +118,14 @@
 
             <div class="mb-3">
                 <label for="genre" class="form-label">Genre</label>
-                <input type="text" class="form-control" id="genre" name="genre" placeholder="Action | Comedy | Drama" required>
+                <input type="text" class="form-control" id="genre" name="genre"
+                    placeholder="Action | Comedy | Drama" required>
             </div>
 
             <div class="mb-3">
                 <label for="time_slots" class="form-label">Time Slots</label>
-                <input type="text" class="form-control" id="time_slots" name="time_slots" placeholder="12:00 | 15:00 | 18:00" required>
+                <input type="text" class="form-control" id="time_slots" name="time_slots"
+                    placeholder="12:00 | 15:00 | 18:00" required>
             </div>
 
             <div class="mb-3">
@@ -122,8 +133,9 @@
                 <input type="number" class="form-control" id="cinema_room" name="cinema_room" min="1" required>
             </div>
 
-            <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-dark">Create Movie</button>
+            <div class="d-flex justify-content-center gap-2">
+                <button type="submit" class="btn btn-dark">Save Changes</button>
+                <a href="{{ route('manage.index') }}" class="btn btn-light">Cancel</a>
             </div>
         </form>
     </div>

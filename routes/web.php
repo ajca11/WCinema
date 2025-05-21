@@ -34,9 +34,11 @@ Route::delete('/users/delete/{id}', [UserController::class, 'destroy'])->name('u
 Route::get('/manage', 'App\Http\Controllers\ManageController@index');
 Route::get('/createm', 'App\Http\Controllers\CreatemController@index');
 Route::get('/manage/manage', [ManageController::class, 'index'])->name('manage.manage');
+Route::post('/manage', [ManageController::class, 'store'])->name('manage.store');
 Route::get('/manage/edit/{id}', [ManageController::class, 'edit'])->name('manage.editmovies');
 Route::put('/manage/update/{id}', [ManageController::class, 'update'])->name('manage.update');
 Route::delete('/manage/delete/{id}', [ManageController::class, 'destroy'])->name('manage.destroy');
+Route::get('/manage', [ManageController::class, 'index'])->name('manage.index');
 
 Route::get('/reservation', [ReservationController::class, 'index'])->name('reservations.index');
 Route::get('/reservations/reservation', [ReservationController::class, 'index'])->name('reservations.reservation');

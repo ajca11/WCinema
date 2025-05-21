@@ -5,139 +5,134 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        body {
-            font-family: 'Teachers', sans-serif;
-        }
+    body {
+        font-family: 'Teachers', sans-serif;
+        background-color: #fff;
+    }
 
-        .carousel-wrapper {
-            position: relative;
-            padding: 40px 20px;
-        }
+    .carousel-wrapper {
+        position: relative;
+        padding: 10px 0;
+        overflow: hidden;
+    }
 
-        .scroll-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 20px;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-        }
+    .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        padding: 10px 20px;
+    }
 
-        .scroll-container::-webkit-scrollbar {
-            display: none;
-        }
+    .scroll-container::-webkit-scrollbar {
+        display: none;
+    }
 
-        .movie-card {
-            flex: 0 0 auto;
-            width: 350px;
-            background-color: #f8f9fa;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            padding: 20px;
-            scroll-snap-align: start;
-        }
+    .movie-card {
+        flex: 0 0 auto;
+        width: 240px;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        background-color: transparent;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
 
-        .movie-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-        }
+    .movie-card:hover {
+        transform: scale(1.05);
+        z-index: 2;
+    }
 
-        .movie-subinfo {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 10px;
-        }
+    .movie-poster {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        display: block;
+    }
 
-        .movie-poster {
-            width: 100%;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
+    .movie-overlay {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 12px;
+        font-size: 14px;
+    }
 
-        .movie-details p {
-            font-size: 14px;
-            color: #444;
-            margin: 4px 0;
-        }
+    .movie-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #333;
+        margin: 0;
+    }
 
-        .btn-book {
-            margin-top: 10px;
-            width: 100%;
-            height: 45px;
-            background-color: #343a40;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            line-height: 1.2;
-        }
+    .movie-subinfo {
+        font-size: 12px;
+        color: #666;
+    }
 
-        .btn-book:hover {
-            background-color: #23272b;
-        }
+    .btn-book {
+        display: inline-block;
+        margin-top: 10px;
+        width: 100%;
+        padding: 8px 0;
+        background-color: #343a40;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        text-align: center;
+    }
 
+    .btn-book:hover {
+        background-color: #23272b;
+    }
 
-        .carousel-controls {
-            text-align: center;
-            margin-top: 20px;
-        }
+    .carousel-controls {
+        text-align: center;
+        margin: 20px 0;
+    }
 
-        .carousel-button {
-            background-color: #343a40;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 10px;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .carousel-button {
+        background-color: #343a40;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 10px;
+        margin: 0 10px;
+        cursor: pointer;
+    }
 
-        .carousel-button:hover {
-            background-color: #23272b;
-        }
+    .welcome {
+        height: 250px;
+        background: linear-gradient(to right, #f8f9fa, #e9ecef);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: #333;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        .welcome {
-            height: 350px;
-            background: linear-gradient(to right, #f8f9fa, #e9ecef);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #333;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    footer a {
+        transition: color 0.2s ease;
+    }
 
-        footer a {
-            transition: color 0.2s ease;
-        }
+    footer a:hover {
+        color: #000;
+    }
+</style>
 
-        footer a:hover {
-            color: #000;
-        }
-    </style>
 
     <div class="container card welcome mb-5">
         Welcome!
-    </div>
-
-    <div class="dropdown" style="position: absolute; top: 20px; right: 20px;">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <li>
-                <a href="/logout" class="dropdown-item">Logout</a>
-            </li>
-        </ul>
     </div>
 
     <h1 class="text-center mt-4 mb-2 fw-semibold">Now Showing</h1>
@@ -176,7 +171,6 @@
                     <p><strong>Director:</strong> Denis Villeneuve</p>
                     <p><strong>Time:</strong> 1:30 PM, 4:00 PM, 7:30 PM</p>
                 </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
             </div>
             <div class="movie-card">
                 <h2 class="movie-title">Deadpool & Wolverine</h2>
@@ -188,7 +182,6 @@
                     <p><strong>Director:</strong> Shawn Levy</p>
                     <p><strong>Time:</strong> 12:00 PM, 3:00 PM, 6:00 PM</p>
                 </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
             </div>
             <div class="movie-card">
                 <h2 class="movie-title">Inside Out 2</h2>
@@ -200,7 +193,6 @@
                     <p><strong>Director:</strong> Kelsey Mann</p>
                     <p><strong>Time:</strong> 11:00 AM, 2:00 PM, 5:00 PM</p>
                 </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
             </div>
             <div class="movie-card">
                 <h2 class="movie-title">A Quiet Place: Day One</h2>
@@ -212,7 +204,6 @@
                     <p><strong>Director:</strong> Michael Sarnoski</p>
                     <p><strong>Time:</strong> 1:00 PM, 4:30 PM, 8:00 PM</p>
                 </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
             </div>
             <div class="movie-card">
                 <h2 class="movie-title">Joker: Folie à Deux</h2>
@@ -224,25 +215,8 @@
                     <p><strong>Director:</strong> Todd Phillips</p>
                     <p><strong>Time:</strong> 2:00 PM, 5:00 PM, 9:00 PM</p>
                 </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
-            </div>
-            <div class="movie-card">
-                <h2 class="movie-title">Mufasa: The Lion King</h2>
-                <p class="movie-subinfo">2024 / PG / 1h 55m</p>
-                <img src="https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_QL75_UX190_CR0,0,190,281_.jpg"
-                    class="movie-poster" alt="Poster of Mufasa: The Lion King">
-                <div class="movie-details">
-                    <p><strong>Cast:</strong> Aaron Pierre, Kelvin Harrison Jr.</p>
-                    <p><strong>Director:</strong> Barry Jenkins</p>
-                    <p><strong>Time:</strong> 10:00 AM, 1:00 PM, 4:00 PM</p>
-                </div>
-                <a href="/booking" class="btn btn-book">Book Now</a>
             </div>
         </div>
-    </div>
-    <div class="carousel-controls">
-        <button class="carousel-button" onclick="scrollSlider(0, -1)">&#8592; Prev</button>
-        <button class="carousel-button" onclick="scrollSlider(0, 1)">Next &#8594;</button>
     </div>
 </div>
 

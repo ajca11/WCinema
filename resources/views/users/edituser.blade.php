@@ -74,25 +74,29 @@
         <form method="POST" action="{{ route('users.update', $user->id) }}">
             @csrf
             @method('PUT')
-            
+
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}"
+                    required>
             </div>
 
             <div class="mb-3">
                 <label for="phone_number" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="phone_number" name="phone_number" value="{{ $user->phone_number }}" required>
+                <input type="tel" class="form-control" id="phone_number" name="phone_number"
+                    value="{{ $user->phone_number }}" required>
             </div>
 
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}" required>
+                <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}"
+                    required>
             </div>
 
             <div class="mb-3">

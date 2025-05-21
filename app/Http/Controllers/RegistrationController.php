@@ -10,7 +10,6 @@ class RegistrationController extends Controller
 {
     public function index()
     {
-        // Return the registration form view
         return view('registration');
     }
 
@@ -26,7 +25,7 @@ class RegistrationController extends Controller
             'username' => 'required|string|unique:users,username|max:255',
         ]);
 
-        // Create the user (password will be hashed in the User model)
+    
         User::create([
 
             'name' => $request->name,
@@ -36,7 +35,6 @@ class RegistrationController extends Controller
 'username' => $request->username,
         ]);
 
-        // Redirect to login page
         return redirect('/login')->with('success', 'Registration successful! Please log in.');
 
 
