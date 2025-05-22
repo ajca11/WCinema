@@ -119,7 +119,7 @@
                         <td>{{ $movie->year }} / {{ $movie->rated }} / {{ $movie->duration }}</td>
                         <td>
                             @if ($movie->picture)
-                                <img src="{{ asset('storage/' . $movie->picture) }}" alt="Movie Picture" width="50">
+                                <img src="{{$movie->picture }}" alt="Movie Picture" width="50">
                             @else
                                 N/A
                             @endif
